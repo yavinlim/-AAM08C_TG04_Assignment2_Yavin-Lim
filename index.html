@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+   <!-- Basic -->
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- Mobile Metas -->
+      <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <!-- Site Metas -->
+      <title>Run Fitness & GYM - Responsive HTML5 Template</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- Site Icons -->
+      <link rel="shortcut icon" href="#" type="image/x-icon" />
+      <link rel="apple-touch-icon" href="#" />
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <!-- Pogo Slider CSS -->
+      <link rel="stylesheet" href="css/pogo-slider.min.css" />
+      <!-- Site CSS -->
+      <link rel="stylesheet" href="css/style.css" />
+      <!-- Responsive CSS -->
+      <link rel="stylesheet" href="css/responsive.css" />
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="css/custom.css" />
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <style>
+         * {box-sizing: border-box;}
+         
+         .img-magnifier-container {
+           position:relative;
+         }
+         
+         .img-magnifier-glass {
+           position: absolute;
+           border: 1px solid #000;
+           border-radius: 50%;
+           cursor: none;
+           /*Set the size of the magnifier glass:*/
+           width: 200px;
+           height: 200px;
+         }
+         </style>
+         <script>
+         function magnify(imgID, zoom) {
+           var img, glass, w, h, bw;
+           img = document.getElementById(imgID);
+           /*create magnifier glass:*/
+           glass = document.createElement("DIV");
+           glass.setAttribute("class", "img-magnifier-glass");
+           /*insert magnifier glass:*/
+           img.parentElement.insertBefore(glass, img);
+           /*set background properties for the magnifier glass:*/
+           glass.style.backgroundImage = "url('" + img.src + "')";
+           glass.style.backgroundRepeat = "no-repeat";
+           glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+           bw = 3;
+           w = glass.offsetWidth / 2;
+           h = glass.offsetHeight / 2;
+           /*execute a function when someone moves the magnifier glass over the image:*/
+           glass.addEventListener("mousemove", moveMagnifier);
+           img.addEventListener("mousemove", moveMagnifier);
+           /*and also for touch screens:*/
+           glass.addEventListener("touchmove", moveMagnifier);
+           img.addEventListener("touchmove", moveMagnifier);
+           function moveMagnifier(e) {
+             var pos, x, y;
+             /*prevent any other actions that may occur when moving over the image*/
+             e.preventDefault();
+             /*get the cursor's x and y positions:*/
+             pos = getCursorPos(e);
+             x = pos.x;
+             y = pos.y;
+             /*prevent the magnifier glass from being positioned outside the image:*/
+             if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+             if (x < w / zoom) {x = w / zoom;}
+             if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+             if (y < h / zoom) {y = h / zoom;}
+             /*set the position of the magnifier glass:*/
+             glass.style.left = (x - w +93) + "px";
+             glass.style.top = (y - h +50) + "px";
+             /*display what the magnifier glass "sees":*/
+             glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+           }
+           function getCursorPos(e) {
+             var a, x = 0, y = 0;
+             e = e || window.event;
+             /*get the x and y positions of the image:*/
+             a = img.getBoundingClientRect();
+             /*calculate the cursor's x and y coordinates, relative to the image:*/
+             x = e.pageX - a.left;
+             y = e.pageY - a.top;
+             /*consider any page scrolling:*/
+             x = x - window.pageXOffset;
+             y = y - window.pageYOffset;
+             return {x : x, y : y};
+           }
+         }
+         </script>
+         <style>
+         .button {
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+          }
+          
+          .button1 {
+            background-color: white; 
+            color: black; 
+            border: 2px solid #f23835;
+          }
+          
+          .button1:hover {
+            background-color: #f23835;
+            color: white;
+         }
+
+         </style>
+         <style>
+            div.fixed {
+               position: fixed;
+               top: 0;
+               right: 50px;
+               width: 69px;
+               height: 27px;
+            }
+         </style>
+                   </head>
+   <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
+      <!-- LOADER -->
+      <div id="preloader">
+         <div class="loader">
+            <img src="images/loader.gif" alt="#" />
+         </div>
+      </div>
+      <!-- END LOADER -->
+      <div class="wrapper">
+      <nav id="sidebar">
+         <div class="menu_section">
+            <ul>
+               <li><a href="index.html">Home</a></li>
+               <li><a href="Prices.html">Prices</a></li>
+               <li><a href="Signingup.html">Signing up</a></li>
+               <li><a href="contact.html">Contact us</a></li>
+            </ul>
+         </div>
+      </nav>
+      <div id="content">
+         <!-- Start header -->
+         <header class="top-header">
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-6">
+                     <div class="logo_main">
+                        <a href="index.html"><img src="images/logo.png" /></a>
+                     </div>
+                  </div>
+                  <div class="col-sm-6">
+                     <div class="fixed">
+                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"><img src="images/menu.png"></button>
+                  </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <!-- End header -->
+         <!-- Start Banner -->
+         <div class="ulockd-home-slider">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="pogoSlider" id="js-main-slider">
+                     <div class="pogoSlider-slide" style="background-image:url(images/Fernvale.jpg);">
+                        <div class="container">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <div class="slide_text white_fonts">
+                                    <h3>Are you<br><strong class="theme_color">ready to</strong> change?</h3>
+                                    <br>
+                                  
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="pogoSlider-slide" style="background-image:url(images/Jurong.jpg);">
+                        <div class="container">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <div class="slide_text white_fonts">
+                                    <h3>Are you<br><strong class="theme_color">ready to</strong> change?</h3>
+                                    <br>
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- .pogoSlider -->
+               </div>
+            </div>
+         </div>
+         <!-- End Banner -->
+         <!-- section -->
+         <div class="section about_section layout_padding half_bg_theme padding_bottom_0">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="full text_align_right_img">
+                        <img src="images/woodlands.jpg" alt="#" />
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="full paddding_left_15">
+                        <div class="heading_main text_align_left">
+                           <h2>Welcome to<br><span class="theme_color">ActiveSG</span></h2>
+                        </div>
+                     </div>
+                     <div class="full paddding_left_15">
+                        <p> Kickstart your exercising journey today at a nearby ActiveSG gym! With 26 locations in the heartlands around Singapore, ActiveSG is made accessible
+			   for all Singaporeans. Furthermore, each entry is priced at an affordable rate of $2.50 for adults and $1.50 for students and senior citizens which is
+			   the CHEAPEST entry fee for any gym in Singapore. All you have to do is book a timeslot through the ActiveSG mobile app and you are good to go.</p>
+              		<h3><span class="theme_color"> There's no better time than now to get going.</span></h3>
+                        
+                     </div>
+                     <div class="full paddding_left_15 margin-top_30">
+                        <a class="main_bt" href="Signingup.html">Read More <i class="fa fa-long-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- end section -->
+         <!-- section -->
+         <div class="section about_section layout_padding">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="full paddding_left_15">
+                        <div class="heading_main text_align_left">
+                           <h2>	What we <span class="theme_color">have </span></h2>
+                        </div>
+                     </div>
+                     <div class="full service_pro_section">
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="full services_list">
+                                 <ul>
+                                    <li><img src="images/check_icon.png" alt="#" /> CARDIO MACHINES</li>
+                                    <li><img src="images/check_icon.png" alt="#" /> FREE WEIGHTS</li>
+                                    <li><img src="images/check_icon.png" alt="#" /> RESISTANCE MACHINES</li>
+                                    <li><img src="images/check_icon.png" alt="#" /> SHOWERS</li>
+				    <li><img src="images/check_icon.png" alt="#" /> LOCKERS</li>
+                                 </ul>
+                              </div>
+                              
+                           </div>
+                           <div class="col-md-6 text_align_right">
+                              <div class="full">
+                                 <img class="img-responsive" src="images/gym_icon.png" alt="#" />
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- end section -->
+        
+     
+ <!-- section -->
+         <div class="section team_section layout_padding">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="full">
+                        <div class="heading_main text_align_center">
+                           <h2><span class="theme_color">Locate</span> us</h2>
+                        </div>                 
+                        <button class="button button1" type ="button" onclick="clickHandler()"><img src="images/icon.png " alt="#" width="50" height="50"></button>
+                          <div class="heading_main text_align_center">
+                           <h3><span class ="theme_color">Try clicking on one of the markers to find out where we are!</span></h3>
+                           </div>
+                           <script>       
+                           function clickHandler(){                    
+                              magnify("myimage", 2);}
+                              </script>
+                        <div class="img-magnifier-container">
+                        <img id="myimage" src="images/Singapore_MRT_Network.png" alt="#" usemap="#workmap" width="1490" height="834">
+                        <div id="myresult" class="img-zoom-result"></div></div>
+                        <map name="workmap">
+                           <area shape="poly" coords="544,117,551,126,545,141,536,126" href="https://www.myactivesg.com/facilities/woodlands-activesg-gym" target="_blank">
+                           <area shape="poly" coords="450,246,459,257,450,271,443,255" href="https://www.myactivesg.com/Facilities/choa-chu-kang-activesg-gym" target="_blank">
+                           <area shape="poly" coords="496,271,505,280,497,295,487,280" href="https://www.myactivesg.com/Facilities/senja-cashew-gym" target="_blank">
+                           <area shape="poly" coords="463,333,472,343,463,358,455,343" href="https://www.myactivesg.com/Facilities/bukit-gombak-activesg-gym" target="_blank">
+                           <area shape="poly" coords="453,379,463,386,454,403,445,389" href="https://www.myactivesg.com/Facilities/bukit-batok-activesg-gym" target="_blank">
+                           <area shape="poly" coords="394,372,402,380,393,395,386,383" href="https://www.myactivesg.com/Facilities/jurong-east-activesg-gym" target="_blank">
+                           <area shape="poly" coords="383,418,392,427,394,443,376,428" href="https://www.myactivesg.com/Facilities/jurong-lake-gardens-gym" target="_blank">
+                           <area shape="poly" coords="341,366,350,374,342,391,333,374" href="https://www.myactivesg.com/Facilities/activesg-hockey-village-gym--boon-lay" target="_blank">
+                           <area shape="poly" coords="285,405,292,412,285,427,276,412" href="https://www.myactivesg.com/Facilities/jurong-west-activesg-gym" target="_blank">
+                           <area shape="poly" coords="496,488,505,497,497,512,488,498" href="https://www.myactivesg.com/Facilities/clementi-activesg-gym" target="_blank">
+                           <area shape="poly" coords="641,556,649,563,642,582,633,564" href="https://www.myactivesg.com/Facilities/activesg-gym-enabling-village" target="_blank">
+                           <area shape="poly" coords="666,568,675,553,665,545,656,553" href="https://www.myactivesg.com/Facilities/delta-activesg-gym" target="_blank">
+                           <area shape="poly" coords="782,510,791,493,780,486,772,494" href="https://www.myactivesg.com/Facilities/jalan-besar-activesg-gym" target="_blank">
+                           <area shape="poly" coords="825,471,832,452,824,445,814,452" href="https://www.myactivesg.com/Facilities/kallang-basin-activesg-gym" target="_blank">
+                           <area shape="poly" coords="736,432,746,416,736,407,727,416" href="https://www.myactivesg.com/Facilities/toa-payoh-activesg-gym" target="_blank">
+                           <area shape="poly" coords="751,374,759,359,751,350,739,360" href="https://www.myactivesg.com/Facilities/bishan-activesg-gym" target="_blank">
+                           <area shape="poly" coords="729,340,739,323,729,314,721,324" href="https://www.myactivesg.com/Facilities/activesg-gym-at-ang-mo-kio-community-centre" target="_blank">
+                           <area shape="poly" coords="819,354,827,361,819,378,810,362" href="https://www.myactivesg.com/Facilities/silver-circle-activesg-gym" target="_blank">
+                           <area shape="poly" coords="741,264,749,274,740,288,732,272" href="https://www.myactivesg.com/Facilities/yio-chu-kang-activesg-gym" target="_blank">
+                           <area shape="poly" coords="698,178,707,186,699,203,689,187" href="https://www.myactivesg.com/Facilities/yishun-activesg-gym" target="_blank">
+                           <area shape="poly" coords="867,326,876,311,868,301,858,311" href="https://www.myactivesg.com/Facilities/hougang-activesg-gym" target="_blank">
+                           <area shape="poly" coords="828,268,837,252,827,244,818,253" href="https://www.myactivesg.com/Facilities/activesg-gym-at-fernvale-square" target="_blank">
+                           <area shape="poly" coords="866,227,875,237,867,252,858,234" href="https://www.myactivesg.com/Facilities/sengkang-activesg-gym" target="_blank">
+                           <area shape="poly" coords="1058,326,1067,308,1057,299,1050,308" href="https://www.myactivesg.com/Facilities/pasir-ris-activesg-gym" target="_blank">
+                           <area shape="poly" coords="1020,355,1030,362,1020,379,1012,362" href="https://www.myactivesg.com/Facilities/tampines-activesg-gym" target="_blank">
+                           <area shape="poly" coords="999,434,1008,442,1000,469,990,440" href="https://www.myactivesg.com/Facilities/heartbeat-bedok-activesg-gymnasium" target="_blank">
+                         </map> 
+                        
+			                 </div>                   
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- end section -->
+         
+ 
+         <!-- Start Footer -->
+         <footer class="footer-box">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12 white_fonts">
+                     <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-4">
+                           <div class="full">
+                              <img class="img-responsive" src="images/logo_3.png" alt="#" />
+                           </div>
+                           <div class="full white_fonts">
+                              <p>Live Better Through Sport - Sport Singapore recognises the value of sport in advancing the national priorities of developing our people and bonding our communities. </p>
+                           </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                           <div class="full">
+                              <div class="footer_blog full white_fonts">
+                                 <h3>ADDRESS</h3>
+                                 <p>Address: 3 Stadium Drive, Singapore 397630<br>Tel:  6500 5000<br>Fax:  6440 9205<br>Email: safe_sport@sport.gov.sg</p>
+                              </div>
+                              <div class="full">
+                                 <ul class="social_icon">
+                                    <li><a href="https://www.facebook.com/livebetterthroughsport/?ref=page_internal" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    
+                                    <li><a href="https://www.instagram.com/sport_singapore/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                    
+                                    <li><a href="https://sg.linkedin.com/company/sportsingapore" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="https://www.youtube.com/user/SingaporeSports/videos" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                           <div class="full">
+                              <div class="footer_blog full white_fonts">
+                                 <h3>OUR TIMINGS</h3>
+                              </div>
+                              <div class="full timetable_blog">
+                                 <ul class="time_table text_align_left">
+                                    <li>Monday</li>
+                                    <li>Tuesday</li>
+                                    <li>Wednesday</li>
+                                    <li>Thursday</li>
+                                    <li>Friday</li>
+                                    <li>Saturday</li>
+                                    <li>Sunday</li>
+                                 </ul>
+                                 <ul class="time_table text_align_right">
+                                    <li>9.00am-6.00pm</li>
+                                    <li>9.00am-6.00pm</li>
+                                    <li>9.00am-6.00pm</li>
+                                    <li>9.00am-6.00pm</li>
+                                    <li>9.00am-6.00pm</li>
+                                    <li>CLOSED</li>
+                                    <li>CLOSED</li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </footer>
+         <!-- End Footer -->
+         
+      </div>
+      <a href="#" id="scroll-to-top" class="hvr-radial-out"><i class="fa fa-angle-up"></i></a>
+      <!-- ALL JS FILES -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- ALL PLUGINS -->
+      <script src="js/jquery.magnific-popup.min.js"></script>
+      <script src="js/jquery.pogo-slider.min.js"></script>
+      <script src="js/slider-index.js"></script>
+      <script src="js/smoothscroll.js"></script>
+      <script src="js/form-validator.min.js"></script>
+      <script src="js/contact-form-script.js"></script>
+      <script src="js/isotope.min.js"></script>
+      <script src="js/images-loded.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- End Google Map -->
+      <script>
+         $(document).ready(function() {
+           $('#sidebarCollapse').on('click', function() {
+             $('#sidebar, #content').toggleClass('active');
+             $('.collapse.in').toggleClass('in');
+             $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+           });
+         });
+      </script>
+  
+   </body>
+</html>
